@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Servlet</display-name>
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>Ejemplo de Prueba</description>
+    <servlet-name>MiServlet</servlet-name>
+    <servlet-class>servlet.MiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MiServlet</servlet-name>
+    <url-pattern>/MiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>ServletHibernate</description>
+    <servlet-name>ServletHibernate</servlet-name>
+    <servlet-class>practica3.servlets.ServletHibernate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletHibernate</servlet-name>
+    <url-pattern>/ServletHibernate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>ServletJDBC</description>
+    <servlet-name>ServletJDBC</servlet-name>
+    <servlet-class>practica3.servlets.ServletJDBC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletJDBC</servlet-name>
+    <url-pattern>/ServletJDBC</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Autentificar con Servlet</description>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>practica4.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>listeners.Context</listener-class>
+  </listener>
+  <listener>
+    <listener-class>listeners.Sesion</listener-class>
+  </listener>
+  <listener>
+    <listener-class>listeners.Request</listener-class>
+  </listener>
+  <context-param>
+    <param-name>username</param-name>
+    <param-value>system</param-value>
+  </context-param>
+  <session-config>
+    <session-timeout>1</session-timeout>
+  </session-config>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/ServletError</location>
+  </error-page>
+  <error-page>
+    <exception-type> javax.servlet.ServletException </exception-type>
+    <location>/ ServletError</location>
+  </error-page>
+</web-app>
